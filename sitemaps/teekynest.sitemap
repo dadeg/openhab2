@@ -1,0 +1,26 @@
+sitemap teekynest label="Welcome to the TeekyNest"
+{
+  /* Frame {
+    Group item=Lights label="Lights" icon="firstfloor"
+  }
+  */
+  
+  Frame label="TeekyNest" {
+    Text label="Lights" icon="firstfloor" {
+      Switch item=Lights mappings=[OFF="All Off"]
+      Switch item=Lights mappings=[ON="All On"]
+    }
+    Frame label="Lights" {
+      /* Switch item=AlarmLight */
+      /* Switch item=Light_Green */
+      Switch item=FamilyRoomLights
+    }
+    /*Frame label="Statuses" {
+      Text item=Tiny_Button
+      Text item=PIR1 
+    }
+    */
+    Frame label="Sensors" {
+      Text item=Temperature
+    }
+}

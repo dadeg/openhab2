@@ -1,0 +1,34 @@
+import org.openhab.core.library.types.*
+import org.openhab.core.persistence.*
+import org.openhab.model.script.actions.*
+
+rule "soundTheAlarm"
+when
+  Item PIR1 changed from OPEN to CLOSED
+then
+  sendCommand(AlarmLight, ON)
+end
+
+rule "endTheAlarm"
+when
+  Item PIR1 changed from CLOSED to OPEN
+then
+  sendCommand(AlarmLight, OFF)
+end
+
+rule "FamilyRoomLights"
+when
+  Item FamilyRoomLights received command
+then
+	if (FamilyRoomLights.state == ON) {
+		// must wait a couple seconds for the command to be run, 
+		// otherwise conflict occurs with transmitter?
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_on", 2000)
+		executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 2_on", 2000)
+  	} else { 
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_off", 2000)
+		executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 2_off", 2000)
+  	}
+  		
+end
+

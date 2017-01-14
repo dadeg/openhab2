@@ -1,0 +1,18 @@
+Group Lights
+Group Controls
+Group Sensors
+
+/* active groups */
+Group:Switch:OR(ON, OFF) 		Lights 		"All Lights [(%d)]"
+
+/* Lights */
+Switch AlarmLight 		"Alarm LED" 		    (Lights) { gpio="pin:13 debounce:10 activelow:yes" }
+Switch Light_Green 	"Green LED"       (Lights) { gpio="pin:5 debounce:10 activelow:yes" }
+Switch FamilyRoomLights 	"Family Room"       (Lights) {  }
+
+/* Buttons, switches, controls */
+/* Contact Tiny_Button 	"Tiny Button [%s]"       (Controls) { gpio="pin:17 debounce:10" } */
+Contact PIR1 	"Motion Detector #1 [%s]"       (Controls) { gpio="pin:22 debounce:10 activelow:yes" }
+
+/* Sensors, monitors */
+Number Temperature "Room Temperature [%.2f °F]" <temperature> (Sensors) { onewire="28.FFAE5C060000#temperature" }
