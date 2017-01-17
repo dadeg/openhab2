@@ -24,8 +24,7 @@ then
 	if (FamilyRoomLights.state == ON) {
 		// must wait a couple seconds for the command to be run, 
 		// otherwise conflict occurs with transmitter?
-	  	val String results = executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_on", 2000)
-		logInfo("Testing", results)
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_on", 2000)
 		executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 2_on", 2000)
   	} else { 
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_off", 2000)
