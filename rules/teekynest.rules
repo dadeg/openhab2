@@ -20,6 +20,7 @@ rule "FamilyRoomLights"
 when
   Item FamilyRoomLights received command
 then
+	logInfo("Testing", "family room lights rule is running")
 	if (FamilyRoomLights.state == ON) {
 		// must wait a couple seconds for the command to be run, 
 		// otherwise conflict occurs with transmitter?
