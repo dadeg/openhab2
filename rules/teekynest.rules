@@ -20,11 +20,12 @@ rule "FamilyRoomLights"
 when
   Item FamilyRoomLights received command
 then
-	logInfo("Testing", "family room lights rule is running")
+	
 	if (FamilyRoomLights.state == ON) {
 		// must wait a couple seconds for the command to be run, 
 		// otherwise conflict occurs with transmitter?
-	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_on", 2000)
+	  	val String results = executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_on", 2000)
+		logInfo("Testing", results)
 		executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 2_on", 2000)
   	} else { 
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_off", 2000)
