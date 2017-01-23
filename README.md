@@ -23,6 +23,8 @@ https://github.com/openhab/openhab/wiki/Samples-Tricks
 
 `./bootstrap -g` to get the newest code and start the service (no -g if no need to pull code).
 
+In order to get GPIO pins to work correctly, you can run openhab2 with the root user and group. To change the user that runs openhab2, edit `/usr/lib/systemd/system/openhab2.service`. 
+
 This is where I learned how to set up the thermometers, which are one-wire sensors.
 install owfs for one-wire sensors, monitors, etc. http://www.raspberrypi.org/forums/viewtopic.php?t=27379&p=505250
 https://github.com/openhab/openhab/wiki/One-Wire-Binding

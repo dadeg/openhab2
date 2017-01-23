@@ -11,13 +11,13 @@ sitemap teekynest label="Welcome to the TeekyNest"
       Switch item=Lights mappings=[ON="All On"]
     }
     Frame label="Lights" {
-      Switch item=AlarmLight
-      Switch item=Light_Green
+      /*Switch item=AlarmLight*/
+      /*Switch item=Light_Green*/
       Switch item=FamilyRoomLights
     }
-    Frame label="Statuses" {
+    /*Frame label="Statuses" {
       Text item=PIR1 
-    }
+    }*/
     
     Frame label="Sensors" {
       Text item=Temperature
