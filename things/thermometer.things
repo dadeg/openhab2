@@ -1,0 +1,1 @@
+exec:command:onewiretemp1 [command="bash /etc/openhab2/custom-scripts/1wire-read.sh 28-0000065caeff"]
