@@ -15,4 +15,4 @@ Switch FamilyRoomLights 	"Family Room"       (Lights) {  }
 Contact PIR1 	"Motion Detector #1 [%s]"       (Controls) { gpio="pin:22 debounce:10 activelow:yes" }
 
 /* Sensors, monitors */
-Number Temperature "Room Temperature [%.2f °F]" <temperature> (Sensors) { onewire="28-0000065caeff#temperature" }
+Number Temperature "Room Temperature [%.2f °F]" <temperature> (Sensors) { exec="./custom-scripts/1wire-read.sh 28-0000065caeff" }
