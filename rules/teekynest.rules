@@ -16,7 +16,7 @@ then
   sendCommand(AlarmLight, OFF)
 end
 
-rule "FamilyRoomLights"
+/*rule "FamilyRoomLights"
 when
   Item FamilyRoomLights received command
 then
@@ -30,4 +30,4 @@ then
   	}
   		
 end
-
+*/

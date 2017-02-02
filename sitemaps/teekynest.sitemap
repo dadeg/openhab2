@@ -6,10 +6,10 @@ sitemap teekynest label="Welcome to the TeekyNest"
   */
   
   Frame label="TeekyNest" {
-    Text label="Lights" icon="firstfloor" {
+    /*Text label="Lights" icon="firstfloor" {
       Switch item=Lights mappings=[OFF="All Off"]
       Switch item=Lights mappings=[ON="All On"]
-    }
+    }*/
     Frame label="Lights" {
       /*Switch item=AlarmLight*/
       /*Switch item=Light_Green*/
