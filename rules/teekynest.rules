@@ -24,9 +24,9 @@ then
 	if (FamilyRoomLights.state == ON) {
 		// must wait a couple seconds for the command to be run, 
 		// otherwise conflict occurs with transmitter?
-	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_on 2_on", 3000)
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_on 2_on 3_on", 3000)
   	} else { 
-	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_off 2_off", 3000)
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_off 2_off 3_off", 3000)
   	}
   		
 end
