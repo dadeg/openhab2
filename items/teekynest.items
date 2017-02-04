@@ -1,11 +1,10 @@
-Group Lights
-Group BedroomLights (Lights)
+
 Group Controls
 Group Sensors
 
 /* active groups */
-Group:Switch:OR(ON, OFF) 		Lights 		"Lights [(%d)]" ["Switchable"]
-Group:Switch:OR(ON, OFF) 		BedroomLights 		"Bedroom Lights  [(%d)]" ["Switchable"]
+Group:Switch:OR(ON, OFF) Lights "Lights" ["Switchable"]
+Group:Switch:OR(ON, OFF) BedroomLights "Bedroom Lights" (Lights) ["Switchable"]
 
 /* Lights */
 Switch AlarmLight 		"Alarm LED" 		    (Lights) { gpio="pin:13 debounce:10 activelow:yes" }
