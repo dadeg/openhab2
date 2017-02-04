@@ -1,27 +1,14 @@
 sitemap teekynest label="Welcome to the TeekyNest"
-{
-  /* Frame {
-    Group item=Lights label="Lights" icon="firstfloor"
-  }
-  */
-  
+{  
   Frame label="TeekyNest" {
-    /*Text label="Lights" icon="firstfloor" {
-      Switch item=Lights mappings=[OFF="All Off"]
-      Switch item=Lights mappings=[ON="All On"]
-    }*/
-    Frame label="Lights" {
-      /*Switch item=AlarmLight*/
-      /*Switch item=Light_Green*/
-      Switch item=FamilyRoomLights
-      Switch item=SaltLamp
-      Switch item=DansNightstandLamp
-    }
-    /*Frame label="Statuses" {
-      Text item=PIR1 
-    }*/
     
-    Frame label="Sensors" {
-      Text item=Temperature
-    }
+    Switch item=Lights
+    Switch item=BedroomLights
+    
+ 	Switch item=FamilyRoomLights
+ 	Switch item=SaltLamp
+ 	Switch item=DansNightstandLamp
+
+    Text item=Temperature
+    
 }

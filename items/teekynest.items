@@ -14,9 +14,13 @@ Switch FamilyRoomLights 	"Family Room Lights"       (Lights) [ "Switchable" ] { 
 Switch SaltLamp 	"Salt Lamp"       (BedroomLights) [ "Switchable" ] {  }
 Switch DansNightstandLamp 	"Dan's Nightstand Lamp"       (BedroomLights) [ "Switchable" ] {  }
 
+// Need these virtual items for alexa to voice control the group. this is a re-implementation of groups as a workaround for alexa.
+//Switch AllBedroomLights 	"Bedroom Lights"       (BedroomLights) [ "Switchable" ] {  }
+//Switch AllLights 	"Lights"       (BedroomLights) [ "Switchable" ] {  }
+
 /* Buttons, switches, controls */
 /* Contact Tiny_Button 	"Tiny Button [%s]"       (Controls) { gpio="pin:17 debounce:10" } */
 Contact PIR1 	"Motion Detector #1 [%s]"       (Controls) { gpio="pin:22 debounce:10 activelow:yes" }
 
 /* Sensors, monitors */
-String Temperature "Room Temperature [%s °F]" <temperature> (Sensors) { channel="exec:command:onewiretemp1:output" }
+String Temperature "House Temperature [%s °F]" <temperature> (Sensors) { channel="exec:command:onewiretemp1:output" }
