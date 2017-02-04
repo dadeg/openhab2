@@ -20,13 +20,12 @@ rule "FamilyRoomLights"
 when
   Item FamilyRoomLights received command
 then
-	
 	if (FamilyRoomLights.state == ON) {
 		// must wait a couple seconds for the command to be run, 
 		// otherwise conflict occurs with transmitter?
-	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_on 2_on 3_on", 9000)
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_on 2_on 3_on")
   	} else { 
-	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_off 2_off 3_off", 9000)
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_off 2_off 3_off")
   	}
   		
 end
@@ -35,12 +34,10 @@ rule "SaltLamp"
 when
   Item SaltLamp received command
 then
-	logInfo("events","salt lamp run")
 	if (SaltLamp.state == ON) {
 		// must wait a couple seconds for the command to be run, 
 		// otherwise conflict occurs with transmitter?
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 4_on")
-	  	
   	} else { 
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 4_off")
   	}
@@ -51,13 +48,12 @@ rule "DansNightstandLamp"
 when
   Item DansNightstandLamp received command
 then
-	logInfo("events","dans lamp run")
 	if (DansNightstandLamp.state == ON) {
 		// must wait a couple seconds for the command to be run, 
 		// otherwise conflict occurs with transmitter?
-	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 5_on", 3000)
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 5_on")
   	} else { 
-	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 5_off", 3000)
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 5_off")
   	}
   		
 end
