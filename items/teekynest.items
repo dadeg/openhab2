@@ -1,5 +1,5 @@
 Group Lights
-Group BedroomLights (Lights)
+Group BedroomLights "Bedroom Lights" (Lights)
 Group Controls
 Group Sensors
 
