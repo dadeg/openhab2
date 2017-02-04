@@ -1,17 +1,18 @@
 Group Lights
-Group Bedroom
+Group BedroomLights (Lights)
 Group Controls
 Group Sensors
 
 /* active groups */
-Group:Switch:OR(ON, OFF) 		Lights 		"All Lights [(%d)]"
+Group:Switch:OR(ON, OFF) 		Lights 		"Lights" ["Switchable"]
+Group:Switch:OR(ON, OFF) 		BedroomLights 		"Bedroom Lights" ["Switchable"]
 
 /* Lights */
 Switch AlarmLight 		"Alarm LED" 		    (Lights) { gpio="pin:13 debounce:10 activelow:yes" }
 Switch Light_Green 	"Green LED"       (Lights) { gpio="pin:5 debounce:10 activelow:yes" }
 Switch FamilyRoomLights 	"Family Room Lights"       (Lights) [ "Switchable" ] {  }
-Switch SaltLamp 	"Salt Lamp"       (Bedroom) [ "Switchable" ] {  }
-Switch DansNightstandLamp 	"Dan's Nightstand Lamp"       (Bedroom) [ "Switchable" ] {  }
+Switch SaltLamp 	"Salt Lamp"       (BedroomLights) [ "Switchable" ] {  }
+Switch DansNightstandLamp 	"Dan's Nightstand Lamp"       (BedroomLights) [ "Switchable" ] {  }
 
 /* Buttons, switches, controls */
 /* Contact Tiny_Button 	"Tiny Button [%s]"       (Controls) { gpio="pin:17 debounce:10" } */
