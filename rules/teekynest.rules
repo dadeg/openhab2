@@ -31,3 +31,18 @@ then
   		
 end
 
+rule "SaltLamp"
+when
+  Item SaltLamp received command
+then
+	
+	if (SaltLamp.state == ON) {
+		// must wait a couple seconds for the command to be run, 
+		// otherwise conflict occurs with transmitter?
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 4_on", 3000)
+  	} else { 
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 4_off", 3000)
+  	}
+  		
+end
+
