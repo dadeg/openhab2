@@ -35,7 +35,7 @@ rule "SaltLamp"
 when
   Item SaltLamp received command
 then
-	
+	logInfo("events","salt lamp run")
 	if (SaltLamp.state == ON) {
 		// must wait a couple seconds for the command to be run, 
 		// otherwise conflict occurs with transmitter?
@@ -50,7 +50,7 @@ rule "DansNightstandLamp"
 when
   Item DansNightstandLamp received command
 then
-	
+	logInfo("events","dans lamp run")
 	if (DansNightstandLamp.state == ON) {
 		// must wait a couple seconds for the command to be run, 
 		// otherwise conflict occurs with transmitter?
