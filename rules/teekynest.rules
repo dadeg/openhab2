@@ -39,7 +39,7 @@ then
 	if (SaltLamp.state == ON) {
 		// must wait a couple seconds for the command to be run, 
 		// otherwise conflict occurs with transmitter?
-	  	val String results = executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 4_on", 3000)
+	  	val String results = executeCommandLine("pwd", 3000)
 	  	logInfo("events",results)
   	} else { 
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 4_off", 3000)
