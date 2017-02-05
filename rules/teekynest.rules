@@ -77,6 +77,9 @@ when
   Item DanPhone received command OR 
   Item TiffPhone received command
 then
+logInfo('events', 'phones got message')
+logInfo('events', DanPhone.state)
+logInfo('events', TiffPhone.state)
 	if (DanPhone.state == OFF and TiffPhone.state == OFF) {
 		sendCommand(Lights, OFF)
   	}	
