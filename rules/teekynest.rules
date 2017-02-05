@@ -30,9 +30,9 @@ then
   		
 end
 
-rule "WatchingMovie"
+rule "WatchingMovies"
 when
-  Item WatchingMovie received command
+  Item WatchingMovies received command
 then
 	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_off 2_on 3_off")
 end
