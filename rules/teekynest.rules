@@ -74,8 +74,8 @@ end
 
 rule "BothPhonesLeaveWifi"
 when
-  Item DanPhone received command OR 
-  Item TiffPhone received command
+  Item DanPhone received update or 
+  Item TiffPhone received update
 then
 logInfo('events', 'phones got message')
 logInfo('events', DanPhone.state)
