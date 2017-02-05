@@ -78,8 +78,6 @@ when
   Item TiffPhone changed
 then
 logInfo('events', 'phones got message')
-logInfo('events', DanPhone.state == ON)
-logInfo('events', TiffPhone.state == ON)
 	if (DanPhone.state == OFF and TiffPhone.state == OFF) {
 		sendCommand(Lights, OFF)
   	}	
