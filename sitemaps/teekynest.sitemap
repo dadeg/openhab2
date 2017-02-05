@@ -10,5 +10,7 @@ sitemap teekynest label="Welcome to the TeekyNest"
  	Switch item=DansNightstandLamp
 
     Text item=Temperature
+    Switch item=DanPhone
+    Switch item=TiffPhone
     
 }
