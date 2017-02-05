@@ -78,7 +78,7 @@ when
   Item TiffPhone changed
 then
 logInfo('events', 'phones got message')
-	if (DanPhone.state == OFF and TiffPhone.state == OFF) {
+	if (DanPhone.state == OFF && TiffPhone.state == OFF) {
 		sendCommand(Lights, OFF)
   	}	
 end
