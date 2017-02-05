@@ -72,3 +72,13 @@ then
   		
 end
 
+rule "BothPhonesLeaveWifi"
+when
+  Item DanPhone received command OR 
+  Item TiffPhone received command
+then
+	if (DanPhone.state == OFF and TiffPhone.state == OFF) {
+		sendCommand(Lights, OFF)
+  	}	
+end
+
