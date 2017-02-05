@@ -30,6 +30,20 @@ then
   		
 end
 
+rule "WatchingMovie"
+when
+  Item WatchingMovie received command
+then
+	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_off 2_on 3_off")
+end
+
+rule "ReadingBookDownstairs"
+when
+  Item ReadingBookDownstairs received command
+then
+	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_off 2_off 3_on")
+end
+
 rule "SaltLamp"
 when
   Item SaltLamp received command
