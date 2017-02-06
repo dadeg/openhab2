@@ -5,17 +5,18 @@ Group Sensors
 /* active groups */
 Group:Switch:OR(ON, OFF) Lights "Lights" ["Switchable"]
 Group:Switch:OR(ON, OFF) BedroomLights "Bedroom Lights" (Lights) ["Switchable"]
+Group:Switch:OR(ON, OFF) DownstairsLights "Downstairs Lights" (Lights) ["Switchable"]
 
 /* Lights */
 Switch AlarmLight 		"Alarm LED" 	 { gpio="pin:13 debounce:10 activelow:yes" }
 Switch Light_Green 	"Green LED"  { gpio="pin:5 debounce:10 activelow:yes" }
-Switch FamilyRoomLights 	"Family Room Lights"       (Lights) [ "Switchable" ] {  }
+Switch FamilyRoomLights 	"Family Room Lights"       (DownstairsLights) [ "Switchable" ] {  }
 Switch SaltLamp 	"Salt Lamp"       (BedroomLights) [ "Switchable" ] {  }
 Switch DansNightstandLamp 	"Dan's Nightstand Lamp"  (BedroomLights)      [ "Switchable" ] {  }
 
 /* Scenes for alexa, must be items */
 Switch WatchingMovies 	"Watching Movies"      [ "Switchable" ] {  }
-Switch ReadingBookDownstairs 	"Reading a Book Downstairs"      [ "Switchable" ] {  }
+Switch ReadingBook 	"Reading a Book"      [ "Switchable" ] {  }
 
 /* Buttons, switches, controls */
 /* Contact Tiny_Button 	"Tiny Button [%s]"       (Controls) { gpio="pin:17 debounce:10" } */

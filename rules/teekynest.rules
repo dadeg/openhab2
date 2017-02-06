@@ -30,14 +30,14 @@ then
   		
 end
 
-rule "WatchingMovies"
+rule "Scene: Watching Movies"
 when
   Item WatchingMovies received command
 then
 	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 1_off 2_on 3_off")
 end
 
-rule "ReadingBookDownstairs"
+rule "Scene: Reading a Book Downstairs"
 when
   Item ReadingBookDownstairs received command
 then
@@ -72,12 +72,11 @@ then
   		
 end
 
-rule "BothPhonesLeaveWifi"
+rule "Turn off all lights when all phones leave wifi"
 when
   Item DanPhone changed or 
   Item TiffPhone changed
 then
-logInfo('events', 'phones got message')
 	if (DanPhone.state == OFF && TiffPhone.state == OFF) {
 		sendCommand(Lights, OFF)
   	}	

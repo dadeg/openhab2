@@ -3,6 +3,7 @@ sitemap teekynest label="Welcome to the TeekyNest"
   Frame label="TeekyNest" {
     
     Switch item=Lights icon="switch" mappings=[ON="On",OFF="Off"]
+    Switch item=DownstairsLights icon="switch" mappings=[ON="On",OFF="Off"]
     Switch item=BedroomLights icon="switch" mappings=[ON="On",OFF="Off"]
     
  	Switch item=FamilyRoomLights
