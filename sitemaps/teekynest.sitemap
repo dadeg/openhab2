@@ -9,6 +9,7 @@ sitemap teekynest label="Welcome to the TeekyNest"
  	Switch item=FamilyRoomLights
  	Switch item=SaltLamp
  	Switch item=DansNightstandLamp
+ 	Switch item=GarageLights
 
     Text item=Temperature
     

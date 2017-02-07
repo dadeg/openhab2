@@ -13,6 +13,7 @@ Switch Light_Green 	"Green LED"  { gpio="pin:5 debounce:10 activelow:yes" }
 Switch FamilyRoomLights 	"Family Room Lights"       (DownstairsLights) [ "Switchable" ] {  }
 Switch SaltLamp 	"Salt Lamp"       (BedroomLights) [ "Switchable" ] {  }
 Switch DansNightstandLamp 	"Dan's Nightstand Lamp"  (BedroomLights)      [ "Switchable" ] {  }
+Switch GarageLights 	"Garage Lights"  (Lights)      [ "Switchable" ] {  }
 
 /* Scenes for alexa, must be items */
 Switch WatchingMovies 	"Watching Movies"      [ "Switchable" ] {  }
