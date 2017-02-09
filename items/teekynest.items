@@ -29,7 +29,7 @@ Contact PIR1 	"Motion Detector #1 [%s]"       (Controls) { gpio="pin:22 debounce
 String Temperature "House Temperature [%s °F]" <temperature> (Sensors) { channel="exec:command:onewiretemp1:output" }
 
 /* Motion Detectors */
-Number FamilyRoomPIR "Family Room Motion Detector [%s]" {mqtt="<[localhost:motion/familyRoom:state:default]"}
+Contact FamilyRoomPIR "Family Room Motion Detector [%s]" {mqtt="<[localhost:motion/familyRoom:state:default]"}
 
 /* Phone Presence on Wifi */
 Switch DanPhone { channel="network:device:danPhone:online" }
