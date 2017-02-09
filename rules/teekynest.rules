@@ -84,6 +84,22 @@ then
   		
 end
 
+rule "Television"
+when
+  Item Television received command
+then
+	if (Television.state == OFF) {
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0316_2_off")
+	  	// Turn it right back on, 
+	  	// we don't want to stop power from being to the tv, 
+	  	// just toggle it to shut it off
+	  	sendCommand(Television, ON)
+  	} else {
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0316_2_on")
+	}
+  		
+end
+
 rule "Turn off all lights when all phones leave wifi"
 when
   Item DanPhone changed or 
