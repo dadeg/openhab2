@@ -14,5 +14,6 @@ sitemap teekynest label="Welcome to the TeekyNest"
  	Switch item=Television
 
     Text item=Temperature
+    Text item=FamilyRoomPIR
     
 }
