@@ -41,8 +41,7 @@ rule "Scene: Reading a Book Downstairs"
 when
   Item ReadingBookDownstairs received command
 then
-	var results = executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0330_1_off 0330_2_off 0330_3_on", 10000)
-	logInfo('text', results)
+	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0330_1_off 0330_2_off 0330_3_on")
 end
 
 rule "SaltLamp"
