@@ -30,7 +30,7 @@ String Temperature "House Temperature [%s °F]" <temperature> (Sensors) { channe
 
 /* Motion Detectors */
 Contact FamilyRoomPIR "Family Room Motion Detector [%s]" {mqtt="<[localhost:motion/familyRoom:state:default]"}
-Contact GaragePIR "Garage Motion Detector [%s]" {mqtt="<[localhost:motion/garage:state:default]"}
+Contact GaragePIR "Garage Motion Detector [%s]" {mqtt="<[localhost:433mhz/123:state:default]"}
 
 /* Phone Presence on Wifi */
 Switch DanPhone { channel="network:device:danPhone:online" }
