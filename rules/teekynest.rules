@@ -110,10 +110,10 @@ then
 	if(garageLightsTimer == null || garageLightsTimer.hasTerminated) {
 		logInfo('text', 'lights are being controlled')
         sendCommand(GarageLights, ON)
-        garageLightsTimer = Timer.createTimer(now.plusMinutes(5) [| 
+        garageLightsTimer = createTimer(now.plusMinutes(5)) [| 
             sendCommand(GarageLights, OFF)
             garageLightsTimer = null
-        ])
+        ]
     }
     else {
     	logInfo('text', 'resetting timer')
