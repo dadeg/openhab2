@@ -101,6 +101,7 @@ then
 end
 
 rule "Turn on GarageLights when there is motion in the Garage"
+var garageLightsTimer = null
 when
   Item GaragePIR changed
 then
