@@ -103,13 +103,12 @@ end
 var Timer garageLightsTimer = null
 rule "Turn on GarageLights when there is motion in the Garage"
 when
-  Item GaragePIR received update
+  Item GaragePIR changed
 then
 logInfo('text', 'running rule')
 	if (GaragePIR.state == CLOSED) {
 logInfo('text', 'it was closed')
 		
-		sendCommand(GaragePIR, OPEN)
   	}	
   	
   	
