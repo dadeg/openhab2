@@ -105,8 +105,11 @@ var garageLightsTimer = null
 when
   Item GaragePIR changed
 then
+logInfo('text', 'running rule')
 	if (GaragePIR.state == CLOSED) {
+logInfo('text', 'it was closed')
 		if(garageLightsTimer == null || garageLightsTimer.hasTerminated) {
+	        logInfo('text', 'lights are being controlled')
 	        sendCommand(GarageLights, ON)
 	        garageLightsTimer = createTimer(now.plusMinutes(5) | 
 	            sendCommand(GarageLights, OFF)
@@ -114,6 +117,7 @@ then
 	        )
 	    }
 	    else {
+	    logInfo('text', 'resetting timer')
 	        garageLightsTimer.reschedule(now.plusMinutes(5))
 	    }
 		sendCommand(GaragePIR, OPEN)
