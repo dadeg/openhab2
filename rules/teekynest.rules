@@ -100,25 +100,15 @@ then
   		
 end
 
-var Timer garageLightsTimer = null
 
 rule "Turn on GarageLights when there is motion in the Garage"
 when
   Item GaragePIR changed from OPEN to CLOSED
 then
 	logInfo('text', 'it was closed')
-	if(garageLightsTimer == null || garageLightsTimer.hasTerminated) {
-		logInfo('text', 'lights are being controlled')
+
         sendCommand(GarageLights, ON)
-        garageLightsTimer = createTimer(now.plusMinutes(5)) [| 
-            sendCommand(GarageLights, OFF)
-            garageLightsTimer = null
-        ]
-    }
-    else {
-    	logInfo('text', 'resetting timer')
-        garageLightsTimer.reschedule(now.plusMinutes(5))
-    }
+      
 	sendCommand(GaragePIR, OPEN)
   
 end
