@@ -1,7 +1,6 @@
 import org.openhab.core.library.types.*
 import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
-import org.openhab.model.script.actions.Timer
 
 rule "soundTheAlarm"
 when
@@ -111,14 +110,11 @@ then
 	if(garageLightsTimer == null || garageLightsTimer.hasTerminated) {
 		logInfo('text', 'lights are being controlled')
         sendCommand(GarageLights, ON)
-        garageLightsTimer = createTimer(now.plusMinutes(5)) [| 
-            sendCommand(GarageLights, OFF)
-            garageLightsTimer = null
-        ])
+        
     }
     else {
     	logInfo('text', 'resetting timer')
-        garageLightsTimer.reschedule(now.plusMinutes(5))
+        
     }
 	sendCommand(GaragePIR, OPEN)
   
