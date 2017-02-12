@@ -1,7 +1,7 @@
 import org.openhab.core.library.types.*
 import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
-import org.joda.time.*
+import org.openhab.model.script.actions.Timer
 
 rule "soundTheAlarm"
 when
@@ -114,7 +114,7 @@ then
         garageLightsTimer = createTimer(now.plusMinutes(5)) [| 
             sendCommand(GarageLights, OFF)
             garageLightsTimer = null
-        ]
+        ])
     }
     else {
     	logInfo('text', 'resetting timer')
