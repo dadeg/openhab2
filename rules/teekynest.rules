@@ -100,8 +100,8 @@ then
   		
 end
 
-rule "Turn on GarageLights when there is motion in the Garage"
 var garageLightsTimer = null
+rule "Turn on GarageLights when there is motion in the Garage"
 when
   Item GaragePIR changed
 then
