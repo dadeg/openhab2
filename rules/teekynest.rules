@@ -107,17 +107,18 @@ when
   Item GaragePIR changed from OPEN to CLOSED
 then
 	logInfo('text', 'it was closed')
-	if(garageLightsTimer == null) {
-		logInfo('text', 'lights are being controlled')
+	if (garageLightsTimer == null || garageLightsTimer.hasTerminated) {
+        logInfo('text', 'lights are being controlled')	
         sendCommand(GarageLights, ON)
-        
-    }
-    else {
+        garageLightsTimer = Timer.createTimer(now.plusSeconds(5)) [| 	
+            sendCommand(GarageLights, OFF)
+            garageLightsTimer = null
+        ]
+    } else {
     	logInfo('text', 'resetting timer')
-        
+        garageLightsTimer.reschedule(now.plusSeconds(15))
     }
 	sendCommand(GaragePIR, OPEN)
-  
 end
 
 rule "Turn off all lights when all phones leave wifi"
