@@ -104,21 +104,20 @@ end
 
 rule "Turn on GarageLights when there is motion in the Garage"
 when
-  Item GaragePIR changed from OPEN to CLOSED
+  Item GaragePIR changed
 then
-	logInfo('text', 'it was closed')
-	if (garageLightsTimer == null) {
-        logInfo('text', 'lights are being controlled')	
-        sendCommand(GarageLights, ON)
-        garageLightsTimer = createTimer(now.plusSeconds(15)) [| 	
-            sendCommand(GarageLights, OFF)
-            garageLightsTimer = null
-        ]
-    } else {
-    	logInfo('text', 'resetting timer')
-        garageLightsTimer.reschedule(now.plusSeconds(15))
-    }
-	sendCommand(GaragePIR, OPEN)
+	if (GaragePIR.state == CLOSED) {
+		if (garageLightsTimer == null) {	
+	        sendCommand(GarageLights, ON)
+	        garageLightsTimer = createTimer(now.plusMinutes(3)) [| 	
+	            sendCommand(GarageLights, OFF)
+	            garageLightsTimer = null
+	        ]
+	    } else {
+	        garageLightsTimer.reschedule(now.plusMinutes(3))
+	    }
+		sendCommand(GaragePIR, OPEN)
+	}
 end
 
 rule "Turn off all lights when all phones leave wifi"
