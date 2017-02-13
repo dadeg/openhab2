@@ -2,6 +2,8 @@ import org.openhab.core.library.types.*
 import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
 
+var garageLightsTimer = null
+
 rule "soundTheAlarm"
 when
   Item PIR1 changed from OPEN to CLOSED
@@ -99,8 +101,6 @@ then
 	}
   		
 end
-
-var garageLightsTimer = null
 
 rule "Turn on GarageLights when there is motion in the Garage"
 when
