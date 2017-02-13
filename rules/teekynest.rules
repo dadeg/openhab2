@@ -2,7 +2,7 @@ import org.openhab.core.library.types.*
 import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
 
-var garageLightsTimer = null
+var Timer garageLightsTimer = null
 
 rule "soundTheAlarm"
 when
