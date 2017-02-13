@@ -107,7 +107,7 @@ when
   Item GaragePIR changed from OPEN to CLOSED
 then
 	logInfo('text', 'it was closed')
-	if (garageLightsTimer == null || garageLightsTimer.hasTerminated) {
+	if (garageLightsTimer == null) {
         logInfo('text', 'lights are being controlled')	
         sendCommand(GarageLights, ON)
         garageLightsTimer = createTimer(now.plusSeconds(5)) [| 	
