@@ -3,6 +3,9 @@ import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
 
 var Timer garageLightsTimer = null
+var Timer StairLightTimer = null
+var Timer DanClosetLightTimer = null
+var Timer TiffClosetLightTimer = null
 
 rule "soundTheAlarm"
 when
@@ -102,6 +105,34 @@ then
   		
 end
 
+rule "StringLights"
+when
+  Item StringLights received command
+then
+	if (StringLights.state == ON) {
+		// must wait a couple seconds for the command to be run, 
+		// otherwise conflict occurs with transmitter?
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0320_4_on")
+  	} else { 
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0320_4_off")
+  	}
+  		
+end
+
+rule "Fountain"
+when
+  Item Fountain received command
+then
+	if (Fountain.state == ON) {
+		// must wait a couple seconds for the command to be run, 
+		// otherwise conflict occurs with transmitter?
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0320_5_on")
+  	} else { 
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0320_5_off")
+  	}
+  		
+end
+
 rule "Turn on GarageLights when there is motion in the Garage"
 when
   Item GaragePIR changed
@@ -117,6 +148,60 @@ then
 	        garageLightsTimer.reschedule(now.plusMinutes(3))
 	    }
 		sendCommand(GaragePIR, OPEN)
+	}
+end
+
+rule "Turn on StairLight when there is motion in the Stairwell"
+when
+  Item StairwellPIR changed
+then
+	if (StairwellPIR.state == CLOSED) {
+		if (StairLightTimer == null) {	
+	        sendCommand(StairLight, ON)
+	        StairLightTimer = createTimer(now.plusSeconds(10)) [| 	
+	            sendCommand(StairLight, OFF)
+	            StairLightTimer = null
+	        ]
+	    } else {
+	        StairLightTimer.reschedule(now.plusSeconds(10))
+	    }
+		sendCommand(StairwellPIR, OPEN)
+	}
+end
+
+rule "Turn on TiffClosetLight when there is motion in the TiffCloset"
+when
+  Item TiffClosetPIR changed
+then
+	if (TiffClosetPIR.state == CLOSED) {
+		if (TiffClosetLightTimer == null) {	
+	        sendCommand(TiffClosetLight, ON)
+	        TiffClosetLightTimer = createTimer(now.plusSeconds(30)) [| 	
+	            sendCommand(TiffClosetLight, OFF)
+	            TiffClosetLightTimer = null
+	        ]
+	    } else {
+	        TiffClosetLightTimer.reschedule(now.plusSeconds(30))
+	    }
+		sendCommand(TiffClosetPIR, OPEN)
+	}
+end
+
+rule "Turn on DanClosetLight when there is motion in the DanCloset"
+when
+  Item DanClosetPIR changed
+then
+	if (DanClosetPIR.state == CLOSED) {
+		if (DanClosetLightTimer == null) {	
+	        sendCommand(DanClosetLight, ON)
+	        DanClosetLightTimer = createTimer(now.plusSeconds(30)) [| 	
+	            sendCommand(DanClosetLight, OFF)
+	            DanClosetLightTimer = null
+	        ]
+	    } else {
+	        DanClosetLightTimer.reschedule(now.plusSeconds(30))
+	    }
+		sendCommand(DanClosetPIR, OPEN)
 	}
 end
 

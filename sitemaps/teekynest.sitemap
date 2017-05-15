@@ -6,12 +6,15 @@ sitemap teekynest label="Welcome to the TeekyNest"
     Switch item=Lights icon="switch" mappings=[ON="On",OFF="Off"]
     Switch item=DownstairsLights icon="switch" mappings=[ON="On",OFF="Off"]
     Switch item=BedroomLights icon="switch" mappings=[ON="On",OFF="Off"]
+    Switch item=Outside icon="switch" mappings=[ON="On",OFF="Off"]
     
  	Switch item=FamilyRoomLights
  	Switch item=SaltLamp
  	Switch item=DansNightstandLamp
  	Switch item=GarageLights
  	Switch item=Television
+ 	Switch item=Fountain
+ 	Switch item=StringLights
 
     Text item=Temperature
     
