@@ -7,8 +7,6 @@ Group:Switch:OR(ON, OFF) All "Everything" ["Switchable"]
 Group:Switch:OR(ON, OFF) Lights "Lights" (All) ["Switchable"]
 Group:Switch:OR(ON, OFF) BedroomLights "Bedroom Lights" (Lights) ["Switchable"]
 Group:Switch:OR(ON, OFF) DownstairsLights "Downstairs Lights" (Lights) ["Switchable"]
-Group:Switch:OR(ON, OFF) ClosetLights "Closet Lights" (Lights) ["Switchable"]
-Group:Switch:OR(ON, OFF) Outside "Outside" ["Switchable"]
 
 /* Lights */
 Switch AlarmLight 		"Alarm LED" 	 { gpio="pin:13 debounce:10 activelow:yes" }
@@ -18,11 +16,6 @@ Switch SaltLamp 	"Salt Lamp"       (BedroomLights) [ "Switchable" ] {  }
 Switch DansNightstandLamp 	"Dan's Nightstand Lamp"  (BedroomLights)      [ "Switchable" ] {  }
 Switch GarageLights 	"Garage Lights"  (Lights)      [ "Switchable" ] {  }
 Switch Television 	"Television"  (All)      [ "Switchable" ] {  }
-Switch StairwellLight 	"Stairwell Light"  (Lights)      [ "Switchable" ] {  }
-Switch DanClosetLight 	"Dan's Closet Light"  (ClosetLights)      [ "Switchable" ] {  }
-Switch TiffClosetLight 	"Tiff's Closet Light"  (ClosetLights)      [ "Switchable" ] {  }
-Switch StringLights 	"String Lights"       (Outside) [ "Switchable" ] {  }
-Switch Fountain 	"Fountain"       (Outside) [ "Switchable" ] {  }
 
 /* Scenes for alexa, must be items */
 Switch WatchingMovies 	"Watching Movies"      [ "Switchable" ] {  }
@@ -38,9 +31,6 @@ String Temperature "House Temperature [%s °F]" <temperature> (Sensors) { channe
 /* Motion Detectors */
 Contact FamilyRoomPIR "Family Room Motion Detector [%s]" {mqtt="<[localhost:motion/familyRoom:state:default]"}
 Contact GaragePIR "Garage Motion Detector [%s]" {mqtt="<[localhost:433mhz/3417977:state:default]"}
-Contact StairwellPIR "Stairwell Motion Detector [%s]" {mqtt="<[localhost:433mhz/stairwell:state:default]"}
-Contact DanClosetPIR "Dan's Closet Motion Detector [%s]" {mqtt="<[localhost:433mhz/dancloset:state:default]"}
-Contact TiffClosetPIR "Tiff's Closet Motion Detector [%s]" {mqtt="<[localhost:433mhz/tiffcloset:state:default]"}
 
 /* Phone Presence on Wifi */
 Switch DanPhone { channel="network:device:danPhone:online" }
