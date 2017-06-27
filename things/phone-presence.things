@@ -1,2 +1,2 @@
 network:device:danPhone [ hostname="192.168.0.101", port="0", retry="5", timeout="2000", refresh_interval="10000", use_system_ping="false", dhcplisten="true" ]
-network:device:tiffPhone [ hostname="192.168.0.102", port="0", retry="5", timeout="2000", refresh_interval="10000", use_system_ping="false", dhcplisten="true" ]
+network:device:tiffPhone [ hostname="192.168.0.103", port="0", retry="5", timeout="2000", refresh_interval="10000", use_system_ping="false", dhcplisten="true" ]
