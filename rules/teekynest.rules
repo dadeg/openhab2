@@ -2,6 +2,7 @@ import org.openhab.core.library.types.*
 import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
 
+var Timer allLightsTimer = null
 var Timer garageLightsTimer = null
 var Timer StairLightTimer = null
 var Timer DanClosetLightTimer = null
@@ -49,11 +50,11 @@ then
 	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0330_1_off 0330_2_off 0330_3_on")
 end
 
-rule "SaltLamp"
+rule "TiffsNightstandLamp"
 when
-  Item SaltLamp received command
+  Item TiffsNightstandLamp received command
 then
-	if (SaltLamp.state == ON) {
+	if (TiffsNightstandLamp.state == ON) {
 		// must wait a couple seconds for the command to be run, 
 		// otherwise conflict occurs with transmitter?
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0330_4_on")
@@ -112,12 +113,12 @@ then
 	if (GaragePIR.state == CLOSED) {
 		if (garageLightsTimer == null) {	
 	        sendCommand(GarageLights, ON)
-	        garageLightsTimer = createTimer(now.plusMinutes(3)) [| 	
+	        garageLightsTimer = createTimer(now.plusMinutes(5)) [| 	
 	            sendCommand(GarageLights, OFF)
 	            garageLightsTimer = null
 	        ]
 	    } else {
-	        garageLightsTimer.reschedule(now.plusMinutes(3))
+	        garageLightsTimer.reschedule(now.plusMinutes(5))
 	    }
 		sendCommand(GaragePIR, OPEN)
 	}
@@ -129,9 +130,11 @@ when
   Item TiffPhone changed
 then
 	if (DanPhone.state == OFF && TiffPhone.state == OFF) {
-		sendCommand(Lights, OFF)
-  	}	
+		allLightsTimer = createTimer(now.plusMinutes(5)) [| 	
+            sendCommand(Lights, OFF)
+            allLightsTimer = null
+        ]
+  	} else {
+  		allLightsTimer.cancel()
+  	}
 end
-
-
-
