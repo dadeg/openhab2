@@ -50,6 +50,14 @@ then
 	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0330_1_off 0330_2_off 0330_3_on")
 end
 
+rule "Scene: Bed Time"
+when
+  Item Bedtime received command
+then
+	sendCommand(BedroomLights, ON)
+	sendCommand(DownstairsLights, OFF)
+end
+
 rule "TiffsNightstandLamp"
 when
   Item TiffsNightstandLamp received command

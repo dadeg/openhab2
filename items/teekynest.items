@@ -18,8 +18,9 @@ Switch GarageLights 	"Garage Lights"  (Lights)      [ "Switchable" ] {  }
 Switch Television 	"Television"  (All)      [ "Switchable" ] {  }
 
 /* Scenes for alexa, must be items */
-Switch WatchingMovies 	"Watching Movies"    (DownstairsLights)  [ "Switchable" ] {  }
-Switch ReadingBook 	"Reading a Book"     (DownstairsLights) [ "Switchable" ] {  }
+Switch WatchingMovies 	"Watching Movies"  [ "Switchable" ] {  }
+Switch ReadingBook 	"Reading a Book" [ "Switchable" ] {  }
+Switch Bedtime 	"Bed Time" [ "Switchable" ] {  }
 
 /* Buttons, switches, controls */
 /* Contact Tiny_Button 	"Tiny Button [%s]"       (Controls) { gpio="pin:17 debounce:10" } */

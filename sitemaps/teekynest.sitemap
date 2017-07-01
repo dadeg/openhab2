@@ -8,7 +8,7 @@ sitemap teekynest label="Welcome to the TeekyNest"
     Switch item=BedroomLights icon="switch" mappings=[ON="On",OFF="Off"]
     
  	Switch item=FamilyRoomLights
- 	Switch item=SaltLamp
+ 	Switch item=TiffsNightstandLamp
  	Switch item=DansNightstandLamp
  	Switch item=GarageLights
  	Switch item=Television
