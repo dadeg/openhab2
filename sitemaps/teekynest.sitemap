@@ -10,6 +10,7 @@ sitemap teekynest label="Welcome to the TeekyNest"
  	Switch item=FamilyRoomLights
  	Switch item=TiffsNightstandLamp
  	Switch item=DansNightstandLamp
+ 	Switch item=SaltLamp
  	Switch item=GarageLights
  	Switch item=Television
 

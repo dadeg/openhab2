@@ -86,6 +86,18 @@ then
   		
 end
 
+rule "SaltLamp"
+when
+  Item SaltLamp received command
+then
+	if (SaltLamp.state == ON) {
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0316_3_on")
+  	} else { 
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0316_3_off")
+  	}
+  		
+end
+
 rule "GarageLights"
 when
   Item GarageLights received command

@@ -7,6 +7,7 @@ Group:Switch:OR(ON, OFF) All "Everything" ["Switchable"]
 Group:Switch:OR(ON, OFF) Lights "Lights" (All) ["Switchable"]
 Group:Switch:OR(ON, OFF) BedroomLights "Bedroom Lights" (Lights) ["Switchable"]
 Group:Switch:OR(ON, OFF) DownstairsLights "Downstairs Lights" (Lights) ["Switchable"]
+Group:Switch:OR(ON, OFF) UpstairsLights "Upstairs Lights" (Lights) ["Switchable"]
 
 /* Lights */
 Switch AlarmLight 		"Alarm LED" 	 { gpio="pin:13 debounce:10 activelow:yes" }
@@ -14,6 +15,7 @@ Switch Light_Green 	"Green LED"  { gpio="pin:5 debounce:10 activelow:yes" }
 Switch FamilyRoomLights 	"Family Room Lights"       (DownstairsLights) [ "Switchable" ] {  }
 Switch TiffsNightstandLamp 	"Tiff's Nightstand Lamp"       (BedroomLights) [ "Switchable" ] {  }
 Switch DansNightstandLamp 	"Dan's Nightstand Lamp"  (BedroomLights)      [ "Switchable" ] {  }
+Switch SaltLamp 	"Salt Lamp"  (UpstairsLights)      [ "Switchable" ] {  }
 Switch GarageLights 	"Garage Lights"  (Lights)      [ "Switchable" ] {  }
 Switch Television 	"Television"  (All)      [ "Switchable" ] {  }
 
