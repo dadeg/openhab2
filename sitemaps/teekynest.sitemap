@@ -16,4 +16,5 @@ sitemap teekynest label="Welcome to the TeekyNest"
 
     Text item=Temperature
     
+    Image url="http://192.168.0.108:88/cgi-bin/CGIProxy.fcgi?cmd=snapPicture&usr=admin&pwd=" height=100 refresh=1000
 }
