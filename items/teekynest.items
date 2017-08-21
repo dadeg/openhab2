@@ -10,18 +10,19 @@ Group:Switch:OR(ON, OFF) DownstairsLights "Downstairs Lights" (Lights) ["Switcha
 Group:Switch:OR(ON, OFF) UpstairsLights "Upstairs Lights" (Lights) ["Switchable"]
 
 /* Lights */
-Switch AlarmLight 		"Alarm LED" 	 { gpio="pin:13 debounce:10 activelow:yes" }
-Switch Light_Green 	"Green LED"  { gpio="pin:5 debounce:10 activelow:yes" }
-Switch FamilyRoomLights 	"Family Room Lights"       (DownstairsLights) [ "Switchable" ] {  }
-Switch TiffsNightstandLamp 	"Tiff's Nightstand Lamp"       (BedroomLights) [ "Switchable" ] {  }
-Switch DansNightstandLamp 	"Dan's Nightstand Lamp"  (BedroomLights)      [ "Switchable" ] {  }
-Switch SaltLamp 	"Salt Lamp"  (UpstairsLights)      [ "Switchable" ] {  }
-Switch GarageLights 	"Garage Lights"  (Lights)      [ "Switchable" ] {  }
-Switch Television 	"Television"  (All)      [ "Switchable" ] {  }
+Switch AlarmLight "Alarm LED" { gpio="pin:13 debounce:10 activelow:yes" }
+Switch Light_Green "Green LED" { gpio="pin:5 debounce:10 activelow:yes" }
+Switch FamilyRoomLights "Family Room Lights" (DownstairsLights) [ "Switchable" ] {}
+Switch TiffsNightstandLamp "Tiff's Nightstand Lamp" (BedroomLights) [ "Switchable" ] {}
+Switch DansNightstandLamp "Dan's Nightstand Lamp" (BedroomLights) [ "Switchable" ] {}
+Switch SaltLamp "Salt Lamp" (UpstairsLights) [ "Switchable" ] {}
+Switch GuestRoomLights "Guest Room Lights" (UpstairsLights) [ "Switchable" ] {}
+Switch GarageLights "Garage Lights" (Lights) [ "Switchable" ] {}
+Switch Television "Television" (All) [ "Switchable" ] {}
 
 /* Scenes for alexa, must be items */
-Switch WatchingMovies 	"Watching Movies"  [ "Switchable" ] {  }
-Switch ReadingBook 	"Reading a Book" [ "Switchable" ] {  }
+Switch WatchingMovies "Watching Movies"  [ "Switchable" ] {  }
+Switch ReadingBook "Reading a Book" [ "Switchable" ] {  }
 Switch Bedtime 	"Bed Time" [ "Switchable" ] {  }
 
 /* Buttons, switches, controls */
@@ -38,3 +39,6 @@ Contact GaragePIR "Garage Motion Detector [%s]" {mqtt="<[localhost:433mhz/341797
 /* Phone Presence on Wifi */
 Switch DanPhone { channel="network:device:danPhone:online" }
 Switch TiffPhone { channel="network:device:tiffPhone:online" }
+
+/* State of home */
+Switch GuestsStayingWithUs "Guests Staying with Us" [ "Switchable" ] {}
