@@ -19,6 +19,7 @@ Switch SaltLamp "Salt Lamp" (UpstairsLights) [ "Switchable" ] {}
 Switch GuestRoomLights "Guest Room Lights" (UpstairsLights) [ "Switchable" ] {}
 Switch GarageLights "Garage Lights" (Lights) [ "Switchable" ] {}
 Switch Television "Television" (All) [ "Switchable" ] {}
+Switch ChristmasLights "Christmas Lights" (All) [ "Switchable" ] {}
 
 /* Scenes for alexa, must be items */
 Switch WatchingMovies "Watching Movies"  [ "Switchable" ] {  }

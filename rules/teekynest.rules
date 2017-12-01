@@ -27,13 +27,13 @@ when
   Item FamilyRoomLights received command
 then
 	if (FamilyRoomLights.state == ON) {
-		// must wait a couple seconds for the command to be run, 
+		// must wait a couple seconds for the command to be run,
 		// otherwise conflict occurs with transmitter?
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0330_1_on 0330_2_on 0330_3_on")
-  	} else { 
+  	} else {
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0330_1_off 0330_2_off 0330_3_off")
   	}
-  		
+
 end
 
 rule "Scene: Watching Movies"
@@ -55,11 +55,11 @@ when
   Item Bedtime received command
 then
 	sendCommand(BedroomLights, ON)
-	
+
 	if (GuestsStayingWithUs.state == ON) {
 		sendCommand(GuestRoomLights, ON)
 	}
-	
+
 	sendCommand(DownstairsLights, OFF)
 end
 
@@ -68,13 +68,13 @@ when
   Item TiffsNightstandLamp received command
 then
 	if (TiffsNightstandLamp.state == ON) {
-		// must wait a couple seconds for the command to be run, 
+		// must wait a couple seconds for the command to be run,
 		// otherwise conflict occurs with transmitter?
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0330_4_on")
-  	} else { 
+  	} else {
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0330_4_off")
   	}
-  		
+
 end
 
 rule "DansNightstandLamp"
@@ -82,13 +82,13 @@ when
   Item DansNightstandLamp received command
 then
 	if (DansNightstandLamp.state == ON) {
-		// must wait a couple seconds for the command to be run, 
+		// must wait a couple seconds for the command to be run,
 		// otherwise conflict occurs with transmitter?
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0330_5_on")
-  	} else { 
+  	} else {
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0330_5_off")
   	}
-  		
+
 end
 
 rule "SaltLamp"
@@ -97,10 +97,10 @@ when
 then
 	if (SaltLamp.state == ON) {
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0316_3_on")
-  	} else { 
+  	} else {
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0316_3_off")
   	}
-  		
+
 end
 
 rule "GuestRoomLights"
@@ -109,10 +109,10 @@ when
 then
 	if (GuestRoomLights.state == ON) {
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0316_4_on")
-  	} else { 
+  	} else {
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0316_4_off")
   	}
-  		
+
 end
 
 rule "GarageLights"
@@ -121,10 +121,22 @@ when
 then
 	if (GarageLights.state == ON) {
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0316_1_on")
-  	} else { 
+  	} else {
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0316_1_off")
   	}
-  		
+
+end
+
+rule "ChristmasLights"
+when
+  Item ChristmasLights received command
+then
+	if (ChristmasLights.state == ON) {
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0316_5_on")
+  	} else {
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0316_5_off")
+  	}
+
 end
 
 rule "Television"
@@ -133,14 +145,14 @@ when
 then
 	if (Television.state == OFF) {
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0316_2_off")
-	  	// Turn it right back on, 
-	  	// we don't want to stop power from being to the tv, 
+	  	// Turn it right back on,
+	  	// we don't want to stop power from being to the tv,
 	  	// just toggle it to shut it off
 	  	sendCommand(Television, ON)
   	} else {
 	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0316_2_on")
 	}
-  		
+
 end
 
 rule "Turn on GarageLights when there is motion in the Garage"
@@ -148,9 +160,9 @@ when
   Item GaragePIR changed
 then
 	if (GaragePIR.state == CLOSED) {
-		if (garageLightsTimer == null) {	
+		if (garageLightsTimer == null) {
 	        sendCommand(GarageLights, ON)
-	        garageLightsTimer = createTimer(now.plusMinutes(5)) [| 	
+	        garageLightsTimer = createTimer(now.plusMinutes(5)) [|
 	            sendCommand(GarageLights, OFF)
 	            garageLightsTimer = null
 	        ]
@@ -163,11 +175,11 @@ end
 
 rule "Turn off all lights when all phones leave wifi"
 when
-  Item DanPhone changed or 
+  Item DanPhone changed or
   Item TiffPhone changed
 then
 	if (DanPhone.state == OFF && TiffPhone.state == OFF) {
-		allLightsTimer = createTimer(now.plusMinutes(5)) [| 	
+		allLightsTimer = createTimer(now.plusMinutes(5)) [|
             sendCommand(Lights, OFF)
             allLightsTimer = null
         ]
