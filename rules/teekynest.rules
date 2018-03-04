@@ -180,7 +180,7 @@ when
 then
 	if (DanPhone.state == OFF && TiffPhone.state == OFF) {
 		allLightsTimer = createTimer(now.plusMinutes(5)) [|
-            sendCommand(Lights, OFF)
+            // sendCommand(Lights, OFF)
             allLightsTimer = null
         ]
   	} else {
