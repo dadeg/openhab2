@@ -155,6 +155,22 @@ then
 
 end
 
+rule "OlliesCamera"
+when
+  Item OlliesCamera received command
+then
+	if (OlliesCamera.state == OFF) {
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0320_1_off")
+	  	// Turn it right back on,
+	  	// we don't want to stop power from being to the tv,
+	  	// just toggle it to shut it off
+	  	sendCommand(OlliesCamera, ON)
+  	} else {
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0320_1_on")
+	}
+
+end
+
 rule "Turn on GarageLights when there is motion in the Garage"
 when
   Item GaragePIR changed

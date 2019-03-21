@@ -20,6 +20,7 @@ Switch GuestRoomLights "Guest Room Lights" (UpstairsLights) [ "Switchable" ] {}
 Switch GarageLights "Garage Lights" (Lights) [ "Switchable" ] {}
 Switch Television "Television" (All) [ "Switchable" ] {}
 Switch ChristmasLights "Christmas Lights" (All) [ "Switchable" ] {}
+Switch OlliesCamera "Ollie's Camera" (All) [ "Switchable" ] {}
 
 /* Scenes for alexa, must be items */
 Switch WatchingMovies "Watching Movies"  [ "Switchable" ] {  }
