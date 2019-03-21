@@ -160,13 +160,13 @@ when
   Item OlliesCamera received command
 then
 	if (OlliesCamera.state == OFF) {
-	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0320_1_off")
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0320_2_off")
 	  	// Turn it right back on,
 	  	// we don't want to stop power from being to the tv,
 	  	// just toggle it to shut it off
 	  	sendCommand(OlliesCamera, ON)
   	} else {
-	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0320_1_on")
+	  	executeCommandLine("/opt/433mhz-transceiver/RCSwitch.sh 0320_2_on")
 	}
 
 end
