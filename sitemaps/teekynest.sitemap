@@ -19,5 +19,4 @@ sitemap teekynest label="Welcome to the TeekyNest"
 
     Text item=Temperature
     Switch item=GuestsStayingWithUs
-    Video url="http://192.168.0.108:88/cgi-bin/CGIStream.cgi?cmd=GetMJStream&usr=admin&pwd=" encoding="mjpeg"
 }
